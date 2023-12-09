@@ -2,14 +2,6 @@
 <img src="https://img.shields.io/badge/GrahpQL-.NET CORE-brightgreen" />
 
 this repo is used to learn GraphQL. And below is the main features will list in this repo.
-#REFE: https://www.ezzylearning.net/tutorial/a-beginners-guide-to-graphql
-<ol>
-<li>foo</li>
-<li>bar</li>
-</ol>
-<ol start="3">
-<li>baz</li>
-</ol>
 
 <div align="center">
   <img  src="https://github-readme-streak-stats.herokuapp.com?user=dongyuanwai&theme=onedark&date_format=M%20j%5B%2C%20Y%5D" />
@@ -70,3 +62,115 @@ Both GraphQL and REST are used to build Web APIs but there are a lot of differen
 <li><strong>Reduced bandwidth</strong> - Due to fewer requests to the server and not over-fetching any unnecessary data, the GraphQL APIs reduce the bandwidth and resource usage significantly.</li>
 <li><strong>Learning curve</strong> - REST APIs are very simple to learn and implement and there are hundreds of books and training courses available whereas GraphQL presents a steep learning curve for developers.</li>
 </ol>
+
+### 👇What Problem GraphQL Solves
+There are many downsides of REST APIs but a few of the major problems GraphQL solves are the following:
+<ul>
+  <li><strong>Over-fetching - </strong>REST API sends you more data than you need</li>
+  <li><strong>Under-fetching – </strong>REST API sends you less data than you need</li>
+  <li><strong>Multiple requests or round trips - </strong>You require multiple requests and round trips to the server to get the data you need</li>
+</ul>
+```TODO sample to explain this`````
+
+## 👇Major Components of GraphQL👇
+Following are the major components of GraphQL APIs.
+### 👇GraphQL Schema
+The GraphQL Schema describes the data clients can request using the GraphQL API. It is basically a contract between the client and the server and defines what an API can do and can’t do and how clients can request data using the API. The schema can be defined using the GraphQL Schema Definition Language (SDL) and it describes the object types associated with each node. The following code snippet is an example of a schema and you can see how each element has a type definition associated with it.
+#### Sample
+```
+type Book {
+    id: ID
+    title: String
+    published: Date
+    author: Author
+}
+type Author {
+    id: ID
+    name: String
+    book: [Book]
+}
+```
+### 👇GraphQL Query
+The queries are used to fetch and consume data from the server. While writing GraphQL queries, the client can traverse multiple related objects and their fields to fetch lots of related data in one request, instead of making several round trips. The following is an example of a GraphQL query that asks for a book and author by its ID number.
+
+#### GraphQL Query Request Example
+```
+{
+  hero {
+    name
+    friends {
+      name
+    }
+  }
+}
+```
+#### GraphQL Query Response Example
+```
+{
+  "data": {
+    "hero": {
+      "name": "Superman",
+      "friends": [
+        {
+          "name": "Spiderman"
+        },
+        {
+          "name": "Batman"
+        }
+      ]
+    }
+  }
+}
+```
+
+### 👇GraphQL Mutations
+Mutations allow GraphQL clients to insert, update or delete data on the server. These are pretty much equivalent to POST, PUT, PATCH, or DELETE requests we use in REST APIs. Mutations are defined in GraphQL schema on the server-side and the client can only manipulate data exposed by the mutations.
+
+#### GraphQL Mutation Definition
+```
+mutation AddNewPost ($name: String!, $postType: PostType) {
+  addPost(name: $name, postType: $postType) {
+    id
+    name
+    postType
+  }
+}
+```
+#### GraphQL Mutation Request Example
+```
+{
+  "name": "Introduction to GraphQL",
+  "postType": "ARTICLE"
+}
+```
+
+### 👇GraphQL Subscriptions
+In GraphQL, subscriptions allow a server to send data to its clients, notifying them when events occur. These are usually implemented using WebSockets and can be useful when you want to send real-time notifications from servers to clients. GraphQL subscriptions use an Event-based approach where a client subscribes for some particular events to the server and the server informs the client whenever these events trigger.
+An Example GraphQL Subscription:
+```
+subscription StoryLikeSubscription($input: StoryLikeSubscribeInput) {
+  storyLikeSubscribe(input: $input) {
+    story {
+      likers { count }
+      likeSentence { text }
+    }
+  }
+}
+```
+
+### 👇GraphQL Resolvers
+Resolver is a GraphQL query handler that tells GraphQL how and where to fetch the data corresponding to a given field in the query. Whenever a GraphQL client queries for a particular field, the resolver for that field fetches the requested data from the appropriate data source. These data sources can be databases, microservices, REST APIs, or even other GraphQL queries.  
+An Example GraphQL Resolver:
+```
+Query: {
+  book(obj, args, context, info) {
+    return context.db.loadBookById(args.id).then(
+      bookData => new Book(bookData)
+    )
+  }
+}
+```
+## 👇Summary👇
+GraphQL has solved a lot of problems using its single round-trip based standardized architecture which is always a better, cheaper, and faster alternative to REST APIs. There are still some shortcomings that are bound to be resolved over time as more and more developers are choosing GraphQL over REST, especially for new projects. If you want to learn how to implement GraphQL APIs then read my post, Getting Started with GraphQL in ASP.NET Core in which I will show you how to build a GraphQL API in ASP.NET Core. I hope you have found this post useful. If you have any comments or suggestions, please leave your comments below. Don’t forget to share this tutorial with your friends or community.
+
+#reference link: https://www.ezzylearning.net/tutorial/a-beginners-guide-to-graphql
