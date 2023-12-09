@@ -4,7 +4,7 @@
 this repo is used to learn GraphQL. And below is the main features will list in this repo.
 
 <div align="center">
-  <img  src="https://github-readme-streak-stats.herokuapp.com?user=dongyuanwai&theme=onedark&date_format=M%20j%5B%2C%20Y%5D" />
+  <img  src="https://github.com/kulala2014/GraphQL-learning/blob/main/GraphQL.JPG" />
 </div>
 
 ### What is GraphQL?
