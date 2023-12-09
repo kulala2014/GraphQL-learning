@@ -173,4 +173,8 @@ Query: {
 ## 👇Summary👇
 GraphQL has solved a lot of problems using its single round-trip based standardized architecture which is always a better, cheaper, and faster alternative to REST APIs. There are still some shortcomings that are bound to be resolved over time as more and more developers are choosing GraphQL over REST, especially for new projects. If you want to learn how to implement GraphQL APIs then read my post, Getting Started with GraphQL in ASP.NET Core in which I will show you how to build a GraphQL API in ASP.NET Core. I hope you have found this post useful. If you have any comments or suggestions, please leave your comments below. Don’t forget to share this tutorial with your friends or community.
 
-#reference link: https://www.ezzylearning.net/tutorial/a-beginners-guide-to-graphql
+#reference link: 
+<ul>
+  <li>https://graphql.org/</li>
+  <li>https://www.ezzylearning.net/tutorial/a-beginners-guide-to-graphql</li>
+</ul>
