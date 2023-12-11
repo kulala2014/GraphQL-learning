@@ -172,5 +172,5 @@ And also we can include the position information in the query.
 
 ## 👇Summary
 we have built our first GraphQL server using the Hot Chocolate library and you can see that we just wrote a few lines of code to set up everything.
-And if we want to learn more about the HotChocolate, we can use [this guide](https://graphql.org/learn/) to go through more basic about HotChocolate.
+And if we want to learn more about the HotChocolate, we can use [this guide](https://chillicream.com/docs/hotchocolate/v13/get-started-with-graphql-in-net-core) to go through more basic about HotChocolate.
 And also we can learn more about Defining a GraphQL schema with [this guide](https://chillicream.com/docs/hotchocolate/defining-a-schema).
